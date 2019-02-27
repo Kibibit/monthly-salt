@@ -1,46 +1,30 @@
-const puppeteer = require('puppeteer');
+const subscriptions = require('./get-subscriptions');
 
 module.exports = async function (req, res) {
   try {
-    const browser = await puppeteer.launch({
-      headless: false
-    });
-    const page = await browser.newPage();
-    await page.goto(`https://salt.bountysource.com/teams/kibibit/supporters`);
 
-    const data = await page.evaluate(() => {
-      const trs = Array.from(document.querySelectorAll('table tr'))
-      console.log('got all trs?', trs);
-      return trs
-        // remove header
-        .slice(1)
-        .map((tr) => ({
-          username: tr.querySelector('td:nth-of-type(2)').innerHTML,
-          thisMonth: tr.querySelector('td:nth-of-type(3)').innerHTML,
-          thisMonthNum: +tr.querySelector('td:nth-of-type(3)').innerHTML.slice(1),
-          allTime: tr.querySelector('td:nth-of-type(4)').innerHTML,
-          allTimeNum: +tr.querySelector('td:nth-of-type(4)').innerHTML.slice(1)
-        }));
-    });
+    const data = await subscriptions.getSaltSubs('kibibit');
 
-    console.log(data);
+    console.log('GOT THE FOLLOWING DATA: ', data);
 
     const monthlySum = data.reduce(function (accumulator, currentValue) {
       return accumulator + currentValue.thisMonthNum;
     }, 0);
 
-    console.log('TOTAL SUM: ', monthlySum);
-
-    await browser.close();
-
     res.statusCode = 200;
-    res.setHeader('Content-Type', `text`);
-    res.end(monthlySum);
+    res.setHeader('Content-Type', `application/json`);
+    res.end(JSON.stringify({
+      schemaVersion: 1,
+      label: 'bountysource',
+      message: `$${ monthlySum }`,
+      color: "#33ccff",
+      style: 'for-the-badge'
+    }));
 
   } catch (e) {
     res.statusCode = 500;
     res.setHeader('Content-Type', 'text/html');
     res.end('<h1>Server Error</h1><p>Sorry, there was a problem</p>');
-    console.error(e.message);
+    console.error('BIG BIG ERROR!!!!', e);
   }
 };
