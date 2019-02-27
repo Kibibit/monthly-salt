@@ -12,6 +12,11 @@ module.exports = async function (req, res) {
     }, 0);
 
     res.statusCode = 200;
+
+    // set cache for 1 hour
+    res.setHeader("Cache-Control", "public, max-age=2700");
+    res.setHeader("Expires", new Date(Date.now() + 2700).toUTCString());
+
     res.setHeader('Content-Type', `application/json`);
     res.end(JSON.stringify({
       schemaVersion: 1,
