@@ -20,12 +20,14 @@ If you want to show your current month's donations from [salt.bountysource.com](
 ## How to use this?
 Pass your team name as a path variable and the endpoint to shields.io:
 
+##### HTML
 ```html
 <a href="https://salt.bountysource.com/teams/kibibit" alt="This Month Backers on bountysource">
   <img src="https://img.shields.io/endpoint.svg?url=https://monthly-salt.now.sh/kibibit&style=flat-square" />
 </a>
 ```
 
+##### MARKDOWN
 ```markdown
 [![This Month Backers on bountysource](https://img.shields.io/endpoint.svg?url=https://monthly-salt.now.sh/kibibit&style=flat-square)](https://salt.bountysource.com/teams/kibibit)
 ```
