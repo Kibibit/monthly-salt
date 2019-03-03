@@ -1,9 +1,15 @@
+const _ = require('lodash');
 const subscriptions = require('./get-subscriptions');
 
 module.exports = async function (req, res) {
   try {
 
-    const data = await subscriptions.getSaltSubs('kibibit');
+    const url = _.trimEnd(req.url, '/');
+    const teamName = url.replace(/^.*\//, '');
+
+    if (!teamName) { throw new Error('no team name!'); }
+
+    const data = await subscriptions.getSaltSubs(teamName);
 
     console.log('GOT THE FOLLOWING DATA: ', data);
 
