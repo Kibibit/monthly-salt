@@ -8,7 +8,7 @@
 </p>
 <p align="center">
   <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-4-orange.svg"></a>
-  <a href="https://salt.bountysource.com/teams/kibibit"><img src="https://img.shields.io/endpoint.svg?url=https://monthly-salt.now.sh&style=flat-square"></a>
+  <a href="https://salt.bountysource.com/teams/kibibit"><img src="https://img.shields.io/endpoint.svg?url=https://monthly-salt.now.sh/kibibit&style=flat-square"></a>
 </p>
 <p align="center">
   get the total subscriptions per month in a <a href="https://shields.io" target="_blank">shields.io</a> compatible JSON
@@ -22,12 +22,15 @@ Pass your team name as a path variable and the endpoint to shields.io:
 
 ##### HTML
 ```html
-<a href="https://salt.bountysource.com/teams/kibibit" alt="This Month Backers on bountysource">
-  <img src="https://img.shields.io/endpoint.svg?url=https://monthly-salt.now.sh/kibibit&style=flat-square" />
+<a href="https://salt.bountysource.com/teams/crystal-lang" alt="This Month Backers on bountysource">
+  <img src="https://img.shields.io/endpoint.svg?url=https://monthly-salt.now.sh/crystal-lang&style=flat-square" />
 </a>
 ```
 
 ##### MARKDOWN
 ```markdown
-[![This Month Backers on bountysource](https://img.shields.io/endpoint.svg?url=https://monthly-salt.now.sh/kibibit&style=flat-square)](https://salt.bountysource.com/teams/kibibit)
+[![This Month Backers on bountysource](https://img.shields.io/endpoint.svg?url=https://monthly-salt.now.sh/crystal-lang&style=flat-square)](https://salt.bountysource.com/teams/crystal-lang)
 ```
+
+##### RESULT
+[![This Month Backers on bountysource](https://img.shields.io/endpoint.svg?url=https://monthly-salt.now.sh/crystal-lang&style=flat-square)](https://salt.bountysource.com/teams/crystal-lang)
