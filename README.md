@@ -11,7 +11,7 @@
   <a href="https://salt.bountysource.com/teams/kibibit"><img src="https://img.shields.io/endpoint.svg?url=https://monthly-salt.now.sh&style=flat-square"></a>
 </p>
 <p align="center">
-  get the total subscriptions per month in a [shields.io](https://shields.io) compatible JSON
+  get the total subscriptions per month in a <a href="https://shields.io" target="_blank">shields.io</a> compatible JSON
 </p>
 <hr>
 
